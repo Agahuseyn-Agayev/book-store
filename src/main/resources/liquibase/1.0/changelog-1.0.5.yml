@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create users table
+      author: Agahuseyn Agayev
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(100)
+                  remarks: email of user
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: text
+                  remarks: password of user
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_type
+                  type: varchar(16)
+                  remarks: user_type of user
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: created of user
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: update of user
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store information about users

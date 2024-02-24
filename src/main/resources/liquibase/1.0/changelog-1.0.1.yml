@@ -1,0 +1,61 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create students table
+      author: Agahuseyn Agayev
+      changes:
+        - createTable:
+            tableName: students
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(250)
+                  remarks: name of student
+                  constraints:
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar(250)
+                  remarks: surname of student
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(30)
+                  remarks: email of student
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age
+                  type: bigint
+                  remarks: age of student
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(16)
+                  remarks: status of student
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: created of student
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: update of student
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store information about student

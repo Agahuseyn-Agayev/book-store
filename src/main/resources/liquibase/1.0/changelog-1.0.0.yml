@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create authors table
+      author: Agahuseyn Agayev
+      changes:
+        - createTable:
+            tableName: authors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(250)
+                  remarks: name of author
+                  constraints:
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar(250)
+                  remarks: surname of author
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age
+                  type: bigint
+                  remarks: age of author
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(16)
+                  remarks: status of author
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: created of author
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: update of author
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store information about author

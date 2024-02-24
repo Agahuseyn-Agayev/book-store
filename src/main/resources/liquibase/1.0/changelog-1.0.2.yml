@@ -1,0 +1,57 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create books table
+      author: Agahuseyn Agayev
+      changes:
+        - createTable:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(250)
+                  remarks: name of book
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(250)
+                  remarks: description of author
+                  constraints:
+                    nullable: false
+              - column:
+                  name: author_id
+                  type: bigint
+                  remarks:  author_id of author
+                  constraints:
+                    foreignKeyName: fk_books_to_authors
+                    references: authors(id)
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(16)
+                  remarks: status of book
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: created of book
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: update of book
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store information about book

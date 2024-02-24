@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create students_read_book table
+      author: Agahuseyn Agayev
+      changes:
+        - createTable:
+            tableName: students_read_book
+            columns:
+              - column:
+                  name: student_id
+                  type: bigint
+                  remarks: student_id of students_read_book
+                  constraints:
+                    foreignKeyName: fk_students_read_book_to_students
+                    references: students(id)
+                    nullable: false
+              - column:
+                  name: book_id
+                  type: bigint
+                  remarks: book_id of students_read_book
+                  constraints:
+                    foreignKeyName: fk_students_read_book_to_books
+                    references: books(id)
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: created of students_read_book
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: update of students_read_book
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store information about students_read_book

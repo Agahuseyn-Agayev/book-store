@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create students_subscription table
+      author: Agahuseyn Agayev
+      changes:
+        - createTable:
+            tableName: students_subscription
+            columns:
+              - column:
+                  name: student_id
+                  type: bigint
+                  remarks: student_id of students_sub
+                  constraints:
+                    foreignKeyName: fk_students_sub_to_students
+                    references: students(id)
+                    nullable: false
+              - column:
+                  name: author_id
+                  type: bigint
+                  remarks: author_id of students_sub
+                  constraints:
+                    foreignKeyName: fk_students_sub_to_authors
+                    references: authors(id)
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: created of students_sub
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: update of students_sub
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store information about students_sub

@@ -1,0 +1,48 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/ingress_book_store
+    username: postgres
+    password: 27091995a
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    open-in-view: false
+    show-sql: true
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yml
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: "agahuseynagayev019@gmail.com"
+    password: "hvwm nhrm uhoe zgiu"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+server:
+  port: 9090
+
+redis:
+  server:
+    urls: redis://localhost:6379
+
+jwt:
+  accessToken:
+    expiration:
+      time: PT15M
+  refreshToken:
+    expiration:
+      count: 50
+      time: PT20M
+
+crypt:
+  algorithm:
+    message-digest: SHA-256
+    aes: AES
+  token-secret-key: mySecretKey
+  global-salt: app-global-salt
+
